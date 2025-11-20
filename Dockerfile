@@ -17,6 +17,12 @@ RUN npm run build
 
 FROM node:20-alpine AS prod
 
+# Устанавливаем tzdata для синхронизации времени
+RUN apk add --no-cache tzdata
+
+# Устанавливаем часовой пояс
+ENV TZ=UTC
+
 WORKDIR /app
 
 COPY --from=build /app/package*.json .

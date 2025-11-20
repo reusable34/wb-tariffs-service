@@ -2,3 +2,4 @@ node_modules
 .local
 .env
 dist
+google-credentials.json
