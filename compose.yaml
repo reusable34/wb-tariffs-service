@@ -62,17 +62,13 @@ services:
       NODE_ENV: production
       WB_API_TOKEN: ${WB_API_TOKEN}
       GOOGLE_SHEETS_SPREADSHEET_IDS: ${GOOGLE_SHEETS_SPREADSHEET_IDS}
-      TZ: Europe/Moscow
+      TZ: UTC
 
     ports:
       - ${APP_PORT}:${APP_PORT}
 
     volumes:
       - ./google-credentials.json:/app/google-credentials.json:ro
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
-    cap_add:
-      - SYS_TIME
 
     dns:
       - 8.8.8.8
